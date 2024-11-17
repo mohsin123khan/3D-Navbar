@@ -1,0 +1,61 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    transform: skew(-10deg);
+}
+
+ul li a {
+    display: block;
+    padding: 15px 25px;
+    --color: green;
+    background-color: var(--color);
+    color: white;
+    text-decoration: none;
+    position: relative;
+    left: 0;
+    transition: left 300ms, background-color 300ms;
+}
+
+ul li a:hover,
+ul li a:focus {
+    left: -20px;
+    background-color: red; 
+    outline: none;
+}
+
+ul li a::before {
+    content: "";
+    width: 20px;
+    bottom: 10px;
+    left: -20px;
+    position: absolute;
+    height: 100%;
+    background-color: color-mix(in srgb, var(--color), black 20%);
+    transform: skewY(45deg); 
+    transition: background-color 300ms;
+}
+
+ul li a::after {
+    content: "";
+    width: 100%;
+    top: -20px;
+    left: -10px;
+    position: absolute;
+    height: 20px;
+    background-color: color-mix(in srgb, var(--color), black 20%);
+    z-index: -1;
+    transform: skewX(45deg);
+    transition: background-color 300ms;
+    
+}
